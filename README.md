@@ -23,7 +23,7 @@ We will ue a financial business domain for our exercises, specifically *Equities
 - A fund manager sending trading instructions to a trader to buy or sell a stock
 - The trader placing trades with one or more brokers to maximize profits (or minimize losses)
 
-Here's the domain model of the business problem. The description below should help understand what it means. If you want to understand the notation in more detail, you can read my [Domain-Drive Design](https://archfirst.org/domain-driven-design/) article.
+Here's the domain model of the business problem. The description below should help understand what it means. If you want to understand the notation in more detail, you can read my [Domain-Driven Design](https://archfirst.org/domain-driven-design/) article.
 
 ![Domain Model](assets/equities-trading-domain-model.png)
 
