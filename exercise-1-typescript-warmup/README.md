@@ -38,18 +38,19 @@ $ yarn install
 
 The `src` folder contains the starter code for this exercise:
 
-- The `domain` folder consists starter code for domain objects: `Order`, `Placement` & `Execution`. 
+- The `domain` folder contains starter code for domain objects: `Order`, `Placement` & `Execution`. 
 - This folder also contains some preliminary tests for `Order` & `Placement` objects. We are using Jest as our testing tool. Run the tests by executing `yarn test` on the command line. In the true TDD spirit, the tests will fail. Your job is to write the code inside the domain objects to make them pass.
-- Think of other test cases to test your code exhaustively. The goal is that the `Order` object should return the correct `OrderStatus` for all combinations of `Order`s, `Placement`s & `Execution`s.
+- Think of other test cases to test your code exhaustively. The goal is that the `Order` object should return the correct `OrderStatus` for all combinations of `Orders`, `Placements` & `Executions`.
 - Strive to get 100% code coverage in your tests, but don't write meaningless tests just to get to that number!
 - Once you are confident that your domain objects are working correctly, write the main program: `src/index.ts`. The purpose of the main program is to load the orders from the data file (`data/index.ts`) and log the status of each. Note that the data is in a normalized format, similar to what you might get from a database. The `loadOrders()` method in the order adapter should convert this normalized data to connected `Order`, `Placement` & `Execution` objects.
+- To run the main program, you must first compile your source code using `yarn build`. This compiles TypScript into ES5 and outputs the resulting code into the `dist` folder. Now you can run the compiled code by executing `yarn start`.   
 
 Tips
 ----
 - File names should always be lowercase to avoid subtle bugs due to platform differences. Use a `-` or `.` to separate words, e.g. `order-view.tsx` or `order.store.ts`.
 - Run prettier often to clean up your code (`yarn format`). Prettier allows the code to look consistent across our team. Do not alter prettier options in package.json.
 - Run lint often to make sure that your code has zero lint errors (`yarn lint`). Don't relax the supplied lint rules.
-- The test title should indicate the intent of what you are testing, not the mechanics. Here's and example of a good and bad test title:
+- The test title should indicate the intent of what you are testing, not the mechanics. Here are examples of good and bad test titles:
   - GOOD: "A partially placed order returns the correct uncommitted percentage"
   - BAD: "A 30% placed order returns 70% uncommitted status" (this does not communicate the intent of the test)
 
@@ -57,7 +58,7 @@ Questions
 ---------
 - What are string literals and why are they useful?
 - What are interfaces and why are they useful?
-- What is an accessor and why is it useful?
+- What are accessors and why are they useful?
 - What are constructor parameter properties?
 - Is a readonly property modifiable by a method of the class?
 - What are generics? Why are they useful?
