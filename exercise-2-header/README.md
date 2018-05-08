@@ -75,7 +75,7 @@ export const Header = decorate(
 - Next add the new orders input and the New Orders button. Create a separate component for them - `NewOrders` in a file called `new-orders.tsx`.
 - Finally add the number of orders indicator to the header.
 
-Once you have fully styled your header, take a look at it in your application. To do this, build the `shared` library (`yarn build`) and then rebuild the app (`cd ../myapp; yarn start`).
+Once you have fully styled your header, take a look at it in your application. To do this, build the `shared` library (`yarn build`) and then rebuild the app (`cd ../myapp; yarn start`). Note that you will have to update the global styles for the app to match the design (background color etc.). The global styles are in `myapp/src/shell.tsx` (starting with `@global`). Note that they are driven using the theme. So as long as you have set the theme correctly, you will not have to change anything!
 
 Tips
 ----
