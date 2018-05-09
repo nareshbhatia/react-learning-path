@@ -70,15 +70,39 @@ export const Header = decorate(
 );
 ```
 
-- Now add the visibility selector radio buttons (All, Open & Done). Add them as a new component called `VisibilitySelector` in a separate file `visibility-selector.tsx`. Refer to the [Radio Buttons](https://material-ui-next.com/demos/selection-controls/#radio-buttons) documentation for this.
-- Next add the Reset button.
-- Next add the new orders input and the New Orders button. Create a separate component for them - `NewOrders` in a file called `new-orders.tsx`.
+- Now add the visibility selector radio buttons (All, Open & Done). You may have a tendency to add the three buttons right inside the header. However note that this would require you to add all the related logic in the header, making it unnecessarily complicated and doing too much. Simplify the header code by breaking the `VisibilitySelector` into a separate component in a separate file `visibility-selector.tsx`. The only code in your header should be something like the code below. Note that the component will later be wired to a MobX store, called `orderStore`, but you don't have to worry about it yet.
+
+```typescript jsx
+<VisibilitySelector
+    visibilityFilter={orderStore.filter}
+    onVisibilityChanged={orderStore.setFilter}
+/>
+```
+
+- Use an enumeration to define the three potential values of the visibility filter. This will help you strongly type the filter values. Create the following enumeration in `src/domain/types.ts`. Note that we will use the `domain` directory to specify all our domain concepts (e.g. `Orders`) as well as the common visual concepts (e.g. visibility filter values). These will generally be pure TypeScript files (*.ts) - not presentational components. 
+
+```typescript jsx
+export enum VisibilityFilter {
+    ALL = 'ALL',
+    OPEN = 'OPEN',
+    DONE = 'DONE'
+}
+```
+
+- Refer to the [Radio Buttons](https://material-ui-next.com/demos/selection-controls/#radio-buttons) documentation to implement the buttons in your `VisibilitySelector`. You may find that the standard radio button is hard to style to our design. Take a look at the smaller version that is created using `icon` and `checkedIcon`. Take the idea of creating simpler components further - create a component called `MiniRadio` that uses icons to style the buttons to our spec. Create it at `src/components/basics/mini-radio.tsx`. Use these mini radios in your `VisibilitySelector`.
+- Next add the Reset button to the header. Use the Material-UI button. Override the styling of all buttons to match our design. This can be done in `components/test-support/get-test-theme.ts`. You can read more about it in [Material-UI docs](https://material-ui-next.com/customization/overrides/).
+- Next add the new orders input and the New Orders button. Again, create a separate component for this - call it `NewOrders` and create it in a file called `new-orders.tsx`.
+  - Use the Material-UI `Input` component to get the number of orders. Use a property named `numOrdersToCreate` to pass in the value of the number of orders to create. Note that I am using a reasonably long name for this property. It is a best practice to name variables and properties so that people reading the code can understand their purpose. Don't use short and cryptic names that make it hard to understand your intent. Similarly the change event sent back to the parent should be called `onNumOrdersToCreateChanged`.
+  - Use `color="primary"` to color the button brown. This means you have to set the primary color for all of your application. Let's set both the primary and secondary colors in our theme. Go to `components/test-support/get-test-theme.ts` and set primary to `brown[700]` and secondary to `orange.A400`. These will go well with our design.
 - Finally add the number of orders indicator to the header.
+- Make sure that the header test still works after all your changes to the header (`header.test.tsx`).
 
 Once you have fully styled your header, take a look at it in your application. To do this, build the `shared` library (`yarn build`) and then rebuild the app (`cd ../myapp; yarn start`). Note that you will have to update the global styles for the app to match the design (background color etc.). The global styles are in `myapp/src/shell.tsx` (starting with `@global`). Note that they are driven using the theme. So as long as you have set the theme correctly, you will not have to change anything!
 
 Tips
 ----
+- Use descriptive names for your variables, properties, functions, etc. Make sure the intent of the element is clear by reading its name. Always remember the famous quote by Phil Karlton: "There are only two hard things in Computer Science: cache invalidation and naming things".
+- We use the prefix `on` to define events and the prefix `handle` to define event handlers. For example, `onNumOrdersToCreateChanged` is an event, whereas `handleNumOrdersToCreateChanged` is an event handler.
 
 Questions
 ---------
