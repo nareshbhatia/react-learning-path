@@ -113,3 +113,4 @@ Resources
 - [Material-UI](https://material-ui-next.com/) - Material-UI is an implementation of Google's popular design system called [Material Design](https://material.io/guidelines/). Although our trade blotter does not follow Material Design, using Material-UI is still beneficial for its robust CSS-in-JS implementation.
 - [Lerna](https://github.com/lerna/lerna)
 - [Yarn Workspaces](https://yarnpkg.com/lang/en/docs/workspaces/)
+- [Storybook](https://storybook.js.org/basics/introduction/) - Storybook is a development environment for UI components. With it, you can visualize different states of your UI components and develop them interactively. Since Storybook runs outside of your app, you can develop UI components in isolation without worrying about app specific dependencies and requirements.
