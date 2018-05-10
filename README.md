@@ -48,3 +48,5 @@ The series of exercises will lead us to a React app that displays the current st
 - How to style your components in a completely encapsulated way, but still overridable
 
 ![Domain Model](assets/mini-blotter.png)
+
+A detailed specification of this design is included in the [assets folder](assets/trader-desktop-design-spec). Simply double-click the `index.html` file to view the specification in your browser. You will use it when styling your application.
