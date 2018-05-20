@@ -198,6 +198,19 @@ storiesOf('Header', module)
 
 - Make sure that the `VisibilitySelector` responds correctly to mouse clicks. Also make sure that the number of orders to create can be changed. For this you will have to make sure that the `Header` is correcly handling the `onVisibilityChanged` and `onNumOrdersToCreateChanged` events. We will take care of the remaining two events in the next exercise.
 
+Tips
+----
+- When testing with Jest/Enzyme, use "data-testid" attribute on nodes you want to select for testing. For example:
+
+```typescript jsx
+<div className={classes.numOrdersIndicator} data-testid="numOrders">
+    {orderStore.numOrders}
+</div>
+```
+
+You can now select this node in Enzyme using `wrapper.find('[data-testid="numOrders"]')`.
+
+
 Resources
 ---------
 - [Ten minute introduction to MobX and React](https://mobx.js.org/getting-started.html)
