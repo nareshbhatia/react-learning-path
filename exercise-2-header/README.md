@@ -1,6 +1,6 @@
 Exercise 2: Header
 ==================
-In this exercise we will build the header of our trade blotter. We will use Material-UI to style the header exactly as shown below. None of the controls will function yet. We will get them working in subsequent exercises. For now, we will only focus on styling.
+In this exercise we will build the header of our trade blotter. We will use Material-UI to style the header exactly as shown below. None of the controls will function yet. We will get them working in subsequent exercises. For now, we will only focus on styling. Remember to look at the [assets folder](assets/trader-desktop-design-spec) for a detailed specification of the visual design.
 
 ![Domain Model](../assets/exercise-2-result.png)
 
