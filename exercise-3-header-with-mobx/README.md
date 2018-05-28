@@ -9,21 +9,38 @@ We will build the MobX store in our `shared` package. This store will be a reusa
 
 Technical Design
 ----------------
-The first thing we need to figure out is: what state do we need to maintain in order to render the header correctly? At a minimum, we need:
+The server will send and receive orders from the client in JSON format. Here's an example of an Order on the wire:
+
+```typescript jsx
+{
+    id: 'o100',
+    side: 'BUY',
+    symbol: 'AAPL',
+    quantity: 10000,
+    committed: 0,
+    executed: 0    
+}
+```
+
+As you can see, this is a "dumb" JavaScript object with no intelligence. In technical terms, it has no behavior, just the data. We will call these objects `JsOrder`s.
+
+In order to do smart things with orders, the client needs to convert `JsOrder`s into MobX objects with observable properties. These objects will also have methods to give them behavior. We will officially call these objects `Order`s. To reiterate, when a `JsOrder` is received from the server, the client will convert it to an `Order` for internal operations. When the client must send an `Order` to the server, it will convert it to a `JsOrder`.
+
+The next thing we need to figure out is: what state do we need to maintain to render the header correctly? At a minimum, we need:
 1. The value of the visibility filter - so that the correct radio button can be selected.
 2. Number of orders to create - so that the number can be rendered in the input field.
-3. Total number of orders in the system - so that the number of orders indicator can be rendered correctly. For this requirement we will go a step further. Since eventually we will have to render the orders themselves, we will maintain a map of orders in the store - the number of orders can be derived from it. I prefer to keep a map, instead of an array, because it is faster to look up an order in a map than in an array. This is going to be important when the server pushes a notification to the client saying that order #xyz has changed.
+3. Total number of orders in the system - so that the number of orders indicator can be rendered correctly. For this requirement we will go a step further. Since eventually we will have to render the orders themselves, we will maintain a map of `Order` objects in the store - the number of orders can be derived from it. I prefer to keep a map, instead of an array, because it is faster to look up an order in a map than in an array. This is going to be important when the server pushes a notification to the client saying that order #xyz has changed.
 
 In addition, we may want to keep a flag called `loading` which is true whenever the client is bulk loading all the orders from the server (for example at start up). This can be used to show a loading indicator. However, to keep our design simple, we will ignore this flag for now.
 
 Based on this we need the following properties the `OrderStore`:
 
-- `orderMap`: a MobX observable map
+- `orderMap`: a MobX observable map from an `id` to an `Order`
 - `filter`: VisibilityFilter
 - `numOrdersToCreate`: number
 
 In addition, we will need the following actions to change the state:
-- `initialize`: When the server sends a full list of orders, we will use this action to initialize the store with orders.
+- `initialize`: When the server sends a full list of `jsOrder`s, we will use this action to initialize the store with `Order`s.
 - `createOrder`: This action is to create one order in the store. 
 - `updateOrder`: This action is to update one order in the store.
 - `deleteAllOrders`: This action will be invoked when the server has been reset.
