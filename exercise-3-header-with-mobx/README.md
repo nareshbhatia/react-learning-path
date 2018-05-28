@@ -106,9 +106,17 @@ export class Order {
      */
     serialize(): JsOrder {}
 
-    get isPlaced() {}
+    /**
+     * Returns true when the order is fully placed (i.e. fully committed)
+     * @returns {boolean}
+     */
+    get isPlaced(): boolean {}
 
-    get isExecuted() {}
+    /**
+     * Returns true when the order is fully executed (a.k.a. done)
+     * @returns {boolean}
+     */
+    get isExecuted(): boolean {}
 
     get status(): OrderStatus {}
 }
