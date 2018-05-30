@@ -9,7 +9,7 @@ In this exercise we will integrate the header with the trader-desktop server. Sp
 - On startup, client will ask the server for all existing orders. When the server returns those orders, client will load them in the OrderStore. This will automatically change the order count in the header.
 - Any additions/changes to orders on the server will be pushed down the client using WebSockets. Client will listen to its socket and update the OrderStore. This will automatically update the order count in the header in case that number has changed.
 
-Note that the [trader-desktop server](../trader-desktop-server) has been provided to you as part of this repository. You don't need to write it. Just follow the instructions in the README file.
+Note that the [trader-desktop-server](../trader-desktop-server) has been provided to you as part of this repository. You don't need to write it. Just follow the instructions in the README file.
 
 Technical Design
 ----------------
@@ -268,4 +268,4 @@ SocketListener.setOrderStore(rootStore.orderStore);
 
 Resources
 ---------
-- Ports and Adapters pattern: See [Hexagonal Architecture](http://alistair.cockburn.us/Hexagonal+architecture) by Alistair Cockburn and [Onion Architecture] by Jeffrey Palermo.
+- Ports-and-Adapters pattern: See [Hexagonal Architecture](http://alistair.cockburn.us/Hexagonal+architecture) by Alistair Cockburn and [Onion Architecture](http://jeffreypalermo.com/blog/the-onion-architecture-part-1/) by Jeffrey Palermo.
