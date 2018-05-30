@@ -163,12 +163,12 @@ updateOrder = (jsOrder: JsOrder) => {};
 
 ```typescript jsx
 export interface HeaderProps {
-    rootStore: any;
+    rootStore?: any;
     children?: any;
 }
 
 export const Header = inject('rootStore')(
-    decorate(
+    decorate<HeaderProps>(
         observer(
             class extends React.Component<
                 HeaderProps &

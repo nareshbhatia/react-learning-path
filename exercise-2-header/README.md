@@ -50,7 +50,7 @@ export interface HeaderProps {
     children?: any;
 }
 
-export const Header = decorate(
+export const Header = decorate<HeaderProps>(
     class extends React.Component<
         HeaderProps &
             WithStyles<'toolbar' | 'title'>
