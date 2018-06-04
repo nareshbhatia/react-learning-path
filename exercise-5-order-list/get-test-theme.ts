@@ -10,7 +10,6 @@ import { Overrides } from 'material-ui/styles/overrides';
 // Extend Color with 650, 750 & 850 options
 declare module 'material-ui' {
     interface Color {
-        650?: string;
         750?: string;
         850?: string;
     }
@@ -21,28 +20,22 @@ declare module 'material-ui/styles/createPalette' {
     interface Palette {
         business: {
             buyBackground: string;
-            sellBackground: string;
-            buyAction: string;
-            sellAction: string;
             buyText: string;
+            sellBackground: string;
             sellText: string;
-            pctCommittedDone: string;
-            pctCommittedNotDone: string;
-            pctUncommitted: string;
+            notDone: string;
+            uncommitted: string;
         };
     }
 
     interface PaletteOptions {
         business: {
             buyBackground: string;
-            sellBackground: string;
-            buyAction: string;
-            sellAction: string;
             buyText: string;
+            sellBackground: string;
             sellText: string;
-            pctCommittedDone: string;
-            pctCommittedNotDone: string;
-            pctUncommitted: string;
+            notDone: string;
+            uncommitted: string;
         };
     }
 }
@@ -85,20 +78,16 @@ export function getTestTheme(): Theme {
             main: red.A400
         },
         grey: {
-            650: '#808080',
             750: '#575757',
             850: '#383838'
         },
         business: {
-            buyBackground: '#2c4d3d',
-            sellBackground: '#4d3e2e',
-            buyAction: '#004734',
-            sellAction: '#7a2f18',
+            buyBackground: '#66a989',
             buyText: '#80b79d',
+            sellBackground: '#fcaf17',
             sellText: '#e57a00',
-            pctCommittedDone: '#f2d200',
-            pctCommittedNotDone: '#404040',
-            pctUncommitted: '#000000'
+            notDone: '#404040',
+            uncommitted: '#000000'
         },
         type: paletteType,
         background: {
