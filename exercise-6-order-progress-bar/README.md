@@ -23,4 +23,6 @@ Nothing much to say here! Just make sure that the OrderProgressBar shows up in t
 ### Test in myapp
 All you need to do here is to rebuild the shared package and then start myapp. The order progress bars should show in their full glory, animating as the orders get filled.
 
+A New Beginning
+---------------
 Congratulations! You are now a React Top Gun! Go celebrate tonight with your friends and family. 
