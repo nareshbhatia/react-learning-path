@@ -12,7 +12,7 @@ Create the `OrderProgressBar` component in the folder `shared/src/components/ord
 
 Create the component so that it fills the entire space provided by its container. For example, if the container is 300px x 50px then the chart should occupy the whole space. If the container has some padding, then the chart should occupy the whole container minus the padding.
 
-This component is meant to be very simple - 3 elements stacked side-by-side, widths proportional to their percentages. Don't overthink it! 
+This component is meant to be very simple - 3 elements stacked side-by-side, widths proportional to their percentages. Don't overthink it! Don't use Material UI components, just build it yourself from scratch.
 
 ### Create a Storybook story
 Create a file called `order-progress-bar.story.tsx` and in it, create a story to test `OrderProgressBar` standalone. Create several variations, one below the other, to test various states of an order. Make sure buy and sell orders show in appropriate color.
