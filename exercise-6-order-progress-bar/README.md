@@ -23,6 +23,14 @@ Nothing much to say here! Just make sure that the OrderProgressBar shows up in t
 ### Test in myapp
 All you need to do here is to rebuild the shared package and then start myapp. The order progress bars should show in their full glory, animating as the orders get filled.
 
+### Check if rendering is optimized
+- Add [React Dev Tools](https://github.com/facebook/react-devtools) extension to your Chrome or Firefox browser.
+- Run your app in the browser and turn on the "Highlight Updates" option in React Dev Tools.
+- Create some new orders. You will see that all the orders are highlighted (i.e. re-rendered) as they progress to completion. Let all these orders complete.
+- Create a few more orders so that now you have a mix of open and done orders. You should see only the open orders highlighted as they progress to completion. The "done" orders should not be highlighted. If you have followed the instructions on `updateOrder()` (in exercise 3) correctly, this should work flawlessly. If you see all your orders highlighted, including the "done" orders, your rendering is not optimized. Figure out why.
+
+In general, this type of render optimization is very easy with MobX. It gives you very granular control over the state to make this possible. Such optimizations are possible with other state management frameworks, but usually much harder. Try doing the same in Redux and you will quickly find out why.
+
 A New Beginning
 ---------------
 Congratulations! You are now a React Top Gun! Go celebrate tonight with your friends and family. 

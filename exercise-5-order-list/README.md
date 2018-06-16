@@ -18,7 +18,9 @@ Add a method called `getVisibleOrders()` to `OrderStore`. This method should ret
 ### Create the OrderList component
 Create the `OrderList` component in the folder `shared/src/components/order-list`. This component is responsible for fetching the visible orders from the `OrderStore` using the `getVisibleOrders()` method and then rendering each visible order. Obviously, you will have to make `OrderStore` available to `OrderList`. To do this you will have to inject the `RootStore` into `OrderList`, just like you did for the `Header` component.
 
-The actual component that renders each order is called `OrderView` and should be created in a separate file.
+The actual component that renders each order is called `OrderView` and should be created in a separate file under `shared/src/components/order-list`.
+
+To summarize, `OrderList` is responsible for getting visible orders from the `OrderStore` and rendering the overall table (the `<thead>` and the `<tbody>`). `OrderView` is responsible for rendering each order (the `<tr>`).
 
 Structure the `order-list` folder similar to the peer `header` folder. Create an `index.js` file that exports just the `OrderList` component. This is the only component visible to the outside world.
 
