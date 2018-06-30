@@ -101,11 +101,9 @@ Once you have fully styled your header, take a look at it in your application. T
 
 Tips
 ----
+- Run lint and prettier on your code frequently, especially before committing your code.
 - Use descriptive names for your variables, properties, functions, etc. Make sure the intent of the element is clear by reading its name. Always remember the famous quote by Phil Karlton: "There are only two hard things in Computer Science: cache invalidation and naming things".
 - We use the prefix `on` to define events and the prefix `handle` to define event handlers. For example, `onNumOrdersToCreateChanged` is an event, whereas `handleNumOrdersToCreateChanged` is an event handler.
-
-Questions
----------
 
 Resources
 ---------
