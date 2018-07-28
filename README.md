@@ -19,7 +19,7 @@ I have a preferred (very opinionated) tech stack which you may use, or you can s
 
 Business Domain
 ---------------
-We will ue a financial business domain for our exercises, specifically *Equities Trading*. At a very high-level, the business process involves:
+We will use a financial business domain for our exercises, specifically *Equities Trading*. At a very high-level, the business process involves:
 - A fund manager sending trading instructions to a trader to buy or sell a stock
 - The trader placing trades with one or more brokers to maximize profits (or minimize losses)
 
